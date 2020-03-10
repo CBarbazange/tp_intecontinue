@@ -27,6 +27,7 @@ public class ArticleServlet extends HttpServlet{
     	int id = Integer.parseInt(req.getPathInfo().substring(1));
         ArticleDAO dao = new ArticleDAO();
         List<Article> articles = dao.getArticles(id);
+        System.out.println(articles);
         req.setAttribute("articles", articles);
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/articles.jsp");
         rd.forward(req, resp);
